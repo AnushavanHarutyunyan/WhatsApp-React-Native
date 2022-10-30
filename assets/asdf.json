@@ -1,0 +1,15 @@
+{
+  "chat": {
+    "id": "9",
+    "lastMessage": {
+      "content": "Meet me at the same place",
+      "createdAt": "2020-09-25T15:40:00.000Z",
+      "id": "m9"
+    },
+    "user": {
+      "id": "u1",
+      "imageUri": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/1.jpg",
+      "name": "Vadim"
+    }
+  }
+}
