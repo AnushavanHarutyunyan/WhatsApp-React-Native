@@ -12,7 +12,7 @@ const ChatListItem = ({ chat }) => {
         navigation.navigate("Chat", { id: chat.id, name: chat.user.name })
       }
       style={styles.container}>
-      <Image source={{ uri: chat.user.imageUri }} style={styles.image} />
+      <Image source={{ uri: chat.user.image }} style={styles.image} />
       <View style={styles.content}>
         <View style={styles.row}>
           <Text numberOfLines={1} style={styles.name}>

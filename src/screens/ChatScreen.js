@@ -7,8 +7,8 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
-import Bg from "../assets/BG.png";
-import messages from "../assets/messages";
+import Bg from "../../assets/BG.png";
+import messages from "../../assets/data/messages.json";
 import InputBox from "../components/InputBox";
 import Messages from "../components/Messages";
 
