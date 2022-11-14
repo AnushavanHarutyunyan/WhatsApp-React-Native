@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Navigator from "./src/navigation";
 import { Amplify, Analytics } from "aws-amplify";
 import { withAuthenticator } from "aws-amplify-react-native";
@@ -10,7 +10,7 @@ Amplify.configure({ ...awsconfig, Analytics: Analytics.disable() });
 function App() {
   return (
     <View style={styles.container}>
-      <Navigator />
+      <Navigator /> 
       <StatusBar style="auto" />
     </View>
   );
@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "whitesmoke",
     justifyContent: "center",
-    // paddingVertical: 50,
   },
 });
 

@@ -2,10 +2,13 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import NotImplement from "../screens/NotImpelemtComp";
 import ChatsScreen from "../screens/ChatsScreens";
 import { Ionicons, Entypo } from "@expo/vector-icons";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 const Tab = createBottomTabNavigator();
 
 const MainTabNavigator = () => {
+  const navigation = useNavigation();
+  
   return (
     <Tab.Navigator
       initialRouteName="Chats"
@@ -58,6 +61,7 @@ const MainTabNavigator = () => {
               name="new-message"
               size={18}
               color="royalblue"
+              onPress={() => {navigation.navigate('Contacts')}}
               style={{ marginRight: 15 }}
             />
           ),
