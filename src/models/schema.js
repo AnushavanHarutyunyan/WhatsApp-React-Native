@@ -38,8 +38,8 @@ export const schema = {
                         "associatedWith": "chatRoom"
                     }
                 },
-                "LMessageast": {
-                    "name": "LMessageast",
+                "LastMessage": {
+                    "name": "LastMessage",
                     "isArray": false,
                     "type": {
                         "model": "Message"
@@ -49,7 +49,7 @@ export const schema = {
                     "association": {
                         "connectionType": "HAS_ONE",
                         "associatedWith": "id",
-                        "targetName": "chatRoomLMessageastId"
+                        "targetName": "chatRoomLastMessageId"
                     }
                 },
                 "createdAt": {
@@ -68,8 +68,8 @@ export const schema = {
                     "attributes": [],
                     "isReadOnly": true
                 },
-                "chatRoomLMessageastId": {
-                    "name": "chatRoomLMessageastId",
+                "chatRoomLastMessageId": {
+                    "name": "chatRoomLastMessageId",
                     "isArray": false,
                     "type": "ID",
                     "isRequired": false,
@@ -377,5 +377,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.3.1",
-    "version": "9a87ac9e3621e07d916fa1952615d988"
+    "version": "81b868f10b9a25c7f7fa16dd7bc88428"
 };

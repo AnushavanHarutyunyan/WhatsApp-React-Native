@@ -34,7 +34,7 @@ export const getChatRoom = /* GraphQL */ `
         nextToken
         startedAt
       }
-      LMessageast {
+      LastMessage {
         id
         text
         chatroomID
@@ -50,7 +50,7 @@ export const getChatRoom = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      chatRoomLMessageastId
+      chatRoomLastMessageId
     }
   }
 `;
@@ -71,7 +71,7 @@ export const listChatRooms = /* GraphQL */ `
           nextToken
           startedAt
         }
-        LMessageast {
+        LastMessage {
           id
           text
           chatroomID
@@ -87,7 +87,7 @@ export const listChatRooms = /* GraphQL */ `
         _version
         _deleted
         _lastChangedAt
-        chatRoomLMessageastId
+        chatRoomLastMessageId
       }
       nextToken
       startedAt
@@ -117,7 +117,7 @@ export const syncChatRooms = /* GraphQL */ `
           nextToken
           startedAt
         }
-        LMessageast {
+        LastMessage {
           id
           text
           chatroomID
@@ -133,7 +133,7 @@ export const syncChatRooms = /* GraphQL */ `
         _version
         _deleted
         _lastChangedAt
-        chatRoomLMessageastId
+        chatRoomLastMessageId
       }
       nextToken
       startedAt
@@ -335,7 +335,7 @@ export const getUserChatRoom = /* GraphQL */ `
           nextToken
           startedAt
         }
-        LMessageast {
+        LastMessage {
           id
           text
           chatroomID
@@ -351,7 +351,7 @@ export const getUserChatRoom = /* GraphQL */ `
         _version
         _deleted
         _lastChangedAt
-        chatRoomLMessageastId
+        chatRoomLastMessageId
       }
       user {
         id
@@ -398,7 +398,7 @@ export const listUserChatRooms = /* GraphQL */ `
           _version
           _deleted
           _lastChangedAt
-          chatRoomLMessageastId
+          chatRoomLastMessageId
         }
         user {
           id
@@ -446,7 +446,7 @@ export const syncUserChatRooms = /* GraphQL */ `
           _version
           _deleted
           _lastChangedAt
-          chatRoomLMessageastId
+          chatRoomLastMessageId
         }
         user {
           id

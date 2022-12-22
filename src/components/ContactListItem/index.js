@@ -1,40 +1,69 @@
 import { Text, Image, StyleSheet, Pressable, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-
+import { API, Auth, graphqlOperation } from "aws-amplify";
+import { createChatRoom, createUserChatRoom } from "../../graphql/mutations";
+import { getCommonChatRoomWithUser } from "../../services/chatRoomService";
 import { AntDesign, FontAwesome } from "@expo/vector-icons";
-
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 
 dayjs.extend(relativeTime);
 
-const ContactListItem = ({
-  user,
-  onPress = () => {},
-  selectable = false,
-  isSelected = false,
-}) => {
+const ContactListItem = ({ user }) => {
   const navigation = useNavigation();
+
+  const onPress = async () => {
+    const existingChatRoom = await getCommonChatRoomWithUser(user.id);
+    
+    if (existingChatRoom) {
+      navigation.navigate("Chat", { id: existingChatRoom.id });
+      return;
+    }
+    
+    const newChatRoomData = await API.graphql(
+      graphqlOperation(createChatRoom, { input: {} })
+    );
+
+    if (!newChatRoomData.data.createChatRoom) {
+      console.log("Error creating the chat");
+    }
+
+    // Add the clicked user to the Chatroom
+    const newChatRoom = newChatRoomData.data?.createChatRoom;
+    await API.graphql(
+      graphqlOperation(createUserChatRoom, {
+        input: {
+          chatRoomID: newChatRoom.id,
+          userID: user.id,
+        },
+      })
+    );
+
+    //Add the auth user to the ChatRoom
+    const authUser = await Auth.currentAuthenticatedUser();
+    await API.graphql(
+      graphqlOperation(createUserChatRoom, {
+        input: {
+          chatRoomID: newChatRoom.id,
+          userID: authUser.attributes.sub,
+        },
+      })
+    );
+
+    navigation.navigate("Chat", { id: newChatRoom.id });
+  };
 
   return (
     <Pressable onPress={onPress} style={styles.container}>
       <Image source={{ uri: user.image }} style={styles.image} />
-
       <View style={styles.content}>
         <Text style={styles.name} numberOfLines={1}>
           {user.name}
         </Text>
-
         <Text numberOfLines={2} style={styles.subTitle}>
           {user.status}
         </Text>
       </View>
-      {selectable &&
-        (isSelected ? (
-          <AntDesign name="checkcircle" size={24} color="royalblue" />
-        ) : (
-          <FontAwesome name="circle-thin" size={24} color="lightgray" />
-        ))}
     </Pressable>
   );
 };

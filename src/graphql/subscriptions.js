@@ -34,7 +34,7 @@ export const onCreateChatRoom = /* GraphQL */ `
         nextToken
         startedAt
       }
-      LMessageast {
+      LastMessage {
         id
         text
         chatroomID
@@ -50,7 +50,7 @@ export const onCreateChatRoom = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      chatRoomLMessageastId
+      chatRoomLastMessageId
     }
   }
 `;
@@ -87,7 +87,7 @@ export const onUpdateChatRoom = /* GraphQL */ `
         nextToken
         startedAt
       }
-      LMessageast {
+      LastMessage {
         id
         text
         chatroomID
@@ -103,7 +103,7 @@ export const onUpdateChatRoom = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      chatRoomLMessageastId
+      chatRoomLastMessageId
     }
   }
 `;
@@ -140,7 +140,7 @@ export const onDeleteChatRoom = /* GraphQL */ `
         nextToken
         startedAt
       }
-      LMessageast {
+      LastMessage {
         id
         text
         chatroomID
@@ -156,7 +156,7 @@ export const onDeleteChatRoom = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      chatRoomLMessageastId
+      chatRoomLastMessageId
     }
   }
 `;
@@ -355,7 +355,7 @@ export const onCreateUserChatRoom = /* GraphQL */ `
           nextToken
           startedAt
         }
-        LMessageast {
+        LastMessage {
           id
           text
           chatroomID
@@ -371,7 +371,7 @@ export const onCreateUserChatRoom = /* GraphQL */ `
         _version
         _deleted
         _lastChangedAt
-        chatRoomLMessageastId
+        chatRoomLastMessageId
       }
       user {
         id
@@ -418,7 +418,7 @@ export const onUpdateUserChatRoom = /* GraphQL */ `
           nextToken
           startedAt
         }
-        LMessageast {
+        LastMessage {
           id
           text
           chatroomID
@@ -434,7 +434,7 @@ export const onUpdateUserChatRoom = /* GraphQL */ `
         _version
         _deleted
         _lastChangedAt
-        chatRoomLMessageastId
+        chatRoomLastMessageId
       }
       user {
         id
@@ -481,7 +481,7 @@ export const onDeleteUserChatRoom = /* GraphQL */ `
           nextToken
           startedAt
         }
-        LMessageast {
+        LastMessage {
           id
           text
           chatroomID
@@ -497,7 +497,7 @@ export const onDeleteUserChatRoom = /* GraphQL */ `
         _version
         _deleted
         _lastChangedAt
-        chatRoomLMessageastId
+        chatRoomLastMessageId
       }
       user {
         id
