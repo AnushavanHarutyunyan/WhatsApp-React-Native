@@ -14,7 +14,7 @@ const ChatListItem = ({ chat }) => {
     const fetchUser = async () => {
       const authUser = await Auth.currentAuthenticatedUser();
 
-      / / Loop through chat.users.items and find a user that is not us (Authenticoted user)
+      // Loop through chat.users.items and find a user that is not us (Authenticoted user)
       const userItem = chat.users.items.find(
         (item) => item.user.id !== authUser.attributes.sub
       );
